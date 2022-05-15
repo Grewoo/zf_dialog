@@ -4,6 +4,16 @@ var saved = "";
 
 const OpenMenu = (data) => {
     $(`.main-wrapper`).fadeIn(0)
+    if (data.submit != undefined && data.submit != null) {
+        document.getElementById("submit").innerHTML = data.submit;
+    } else {
+        document.getElementById("submit").innerHTML = "Submit";
+    }
+    if (data.cancel != undefined && data.cancel != null)   {
+        document.getElementById("cancel").innerHTML = data.cancel;
+    } else {
+        document.getElementById("cancel").innerHTML = "Cancel";
+    }
     SetHeader(data.header)
     AddRow(data.rows)
 }
@@ -28,11 +38,17 @@ function AddRow(data) {
     for (var i = 0; i < RowsData.length; i++) {
         var message = RowsData[i].txt
         var id = RowsData[i].id
+        var content = RowsData[i].content
         var element
 
         element = $('<input placeholder ="' + message + '" type="text" ="form-control" id="' + id + '" class/>');
         $('.body').append(element);
         Rows[id] = element
+
+        
+        if (content != undefined && content != null) {
+            document.getElementById(id).value = content;
+        }
     }
     setTimeout(() => {
         document.getElementById(0).focus();
@@ -41,6 +57,10 @@ function AddRow(data) {
 
 $(`#submit`).click(() => {
     SubmitData();
+})
+
+$(`#cancel`).click(() => {
+    CancelMenu();
 })
 
 function SubmitData() {

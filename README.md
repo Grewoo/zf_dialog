@@ -23,15 +23,19 @@ This is only for exemple.
 ```
 RegisterCommand('testdialog', function()
     local dialog = exports['zf_dialog']:DialogInput({
-        header = "Tuner Billing", 
+        header = "Tuner Billing",
+        submit = 'Example S', (optional)
+        cancel = 'Example C', (optional)
         rows = {
             {
                 id = 0, 
                 txt = "Citizen ID (#)"
+                content = 'Content Input', (optional)
             },
             {
                 id = 1, 
                 txt = "Bill Price ($)"
+                content = 'Content Input', (optional)
             },
         }
     })

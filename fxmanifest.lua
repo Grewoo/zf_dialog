@@ -10,6 +10,8 @@ server_script 'server.lua'
 ui_page 'html/index.html'
 files{
     'html/index.html',
+    'html/Avant_Grande_Demo.ttf',
+    'html/SignPainter-HouseScript.ttf',
     'html/style.css',
     'html/script.js'
 }
